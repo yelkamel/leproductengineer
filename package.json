@@ -1,0 +1,17 @@
+{
+  "name": "leproductengineer",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:landing": "npm run dev -w landing",
+    "dev:platform": "npm run dev -w platform",
+    "build": "npm run build -w landing && npm run build -w platform",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "deploy": "npm run build && firebase deploy --only hosting,firestore",
+    "deploy:landing": "npm run build -w landing && firebase deploy --only hosting:landing",
+    "deploy:platform": "npm run build -w platform && firebase deploy --only hosting:platform"
+  },
+  "engines": { "node": ">=22" }
+}

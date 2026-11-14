@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.env*.local
+.firebase/
+firebase-debug.log
+firestore-debug.log
+.DS_Store
+.agentsroom/

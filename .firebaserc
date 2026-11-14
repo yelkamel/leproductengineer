@@ -1,0 +1,11 @@
+{
+  "projects": { "default": "leproductengineer-93" },
+  "targets": {
+    "leproductengineer-93": {
+      "hosting": {
+        "landing": ["leproductengineer"],
+        "platform": ["leproductengineer-go"]
+      }
+    }
+  }
+}
