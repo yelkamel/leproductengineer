@@ -9,3 +9,9 @@ firebase-debug.log
 firestore-debug.log
 .DS_Store
 .agentsroom/
+
+# BMAD local state
+_bmad/config.user.toml
+_bmad/custom/config.user.toml
+_bmad/render/
+.claude/settings.local.json

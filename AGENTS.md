@@ -46,3 +46,20 @@ npm run deploy:landing       # ou un seul site
   (`app/(app)/layout.tsx`) ; la vraie barrière, ce sont les règles Firestore.
 - Le design est **provisoire** (tokens dans `globals.css`) : il sera refait plus tard.
 - Langue : contenu et code commentés en français.
+
+## Suivi du projet (BMAD)
+
+BMAD 6.12.4 est installé (`_bmad/`, skills dans `.claude/skills/bmad-*`).
+
+| Quoi | Où |
+|---|---|
+| PRD | `_bmad-output/planning-artifacts/prds/prd-leproductengineer-2026-11-14/prd.md` |
+| Epics et stories | `_bmad-output/planning-artifacts/epics.md` |
+| Statut de chaque story | `_bmad-output/implementation-artifacts/sprint-status.yaml` |
+
+- Epics 1 à 4 = la V1 livrée le 2026-11-14 (`done`, sauf 3.2 Google en `review` : à vérifier
+  dans un vrai navigateur). Epics 5 à 8 = backlog.
+- Voir où on en est : skill `bmad-sprint-planning` (« show sprint status »).
+- Lancer une story : skill `bmad-build`, qui met le statut à jour.
+- Nouvelle story : l'ajouter dans `epics.md` (format `### Story N.M: Titre`), puis relancer
+  `bmad-sprint-planning` pour régénérer le suivi (les statuts existants sont conservés).
