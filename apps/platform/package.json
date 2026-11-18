@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5",
     "@lpe/curriculum": "*",
+    "@lpe/ui": "*",
     "@tanstack/react-query": "^5.107.1",
     "firebase": "^13.3.0",
     "next": "16.4.6",

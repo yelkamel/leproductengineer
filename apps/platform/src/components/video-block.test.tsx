@@ -7,7 +7,7 @@ describe("VideoBlock", () => {
   it("shows the placeholder and prep notes while the video is not filmed", () => {
     const video = allLessons[0]!.lesson.video;
     render(<VideoBlock video={video} title="Leçon" />);
-    expect(screen.getByText("Vidéo en préparation")).toBeInTheDocument();
+    expect(screen.getByText(/Vidéo en préparation · environ \d+ min/)).toBeInTheDocument();
     expect(screen.getByText("Notes de préparation")).toBeInTheDocument();
     expect(screen.queryByTitle("Leçon")).not.toBeInTheDocument();
   });

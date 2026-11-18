@@ -1,5 +1,6 @@
 "use client";
 
+import { Logo } from "@lpe/ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
@@ -19,13 +20,13 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/dashboard/" className="font-semibold tracking-tight">
-            Le Product Engineer
+      <header className="bd-sky sticky top-0 z-10 border-b-[3px] border-ink">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+          <Link href="/dashboard/" aria-label="Le dojo, tableau de bord">
+            <Logo>Le dojo</Logo>
           </Link>
-          <div className="flex items-center gap-3 text-sm">
-            <span className="hidden text-muted sm:inline">{auth.user.displayName ?? auth.user.email}</span>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="hidden font-letter font-bold sm:inline">{auth.user.displayName ?? auth.user.email}</span>
             <Button variant="ghost" onClick={() => signOut()}>
               Déconnexion
             </Button>

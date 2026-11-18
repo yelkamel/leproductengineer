@@ -15,3 +15,4 @@ _bmad/config.user.toml
 _bmad/custom/config.user.toml
 _bmad/render/
 .claude/settings.local.json
+.mcp.json

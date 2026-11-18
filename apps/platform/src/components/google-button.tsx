@@ -31,12 +31,4 @@ export function GoogleButton() {
   );
 }
 
-export function Divider() {
-  return (
-    <div className="my-5 flex items-center gap-3 text-xs text-muted">
-      <span className="h-px flex-1 bg-border" />
-      ou
-      <span className="h-px flex-1 bg-border" />
-    </div>
-  );
-}
+export { Divider } from "./ui";

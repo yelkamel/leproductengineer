@@ -30,8 +30,8 @@ export default function ResetPasswordPage() {
 
   return (
     <>
-      <h1 className="mb-1 text-xl font-semibold">Mot de passe oublié</h1>
-      <p className="mb-6 text-sm text-muted">On t&apos;envoie un lien pour en choisir un nouveau.</p>
+      <h1 className="bd-h2 mb-2">Mot de passe oublié</h1>
+      <p className="mb-6 text-sm text-ink-soft">On t&apos;envoie un lien pour en choisir un nouveau.</p>
       {isSubmitSuccessful ? (
         <Alert tone="success">Si un compte existe pour cet e-mail, le lien vient de partir.</Alert>
       ) : (
@@ -44,7 +44,7 @@ export default function ResetPasswordPage() {
         </form>
       )}
       <p className="mt-6 text-center text-sm">
-        <Link href="/login/" className="text-muted hover:text-foreground">
+        <Link href="/login/" className="bd-link font-normal">
           Retour à la connexion
         </Link>
       </p>

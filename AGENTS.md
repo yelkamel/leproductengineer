@@ -6,7 +6,8 @@ Monorepo npm workspaces. Deux sites statiques Next.js sur un seul projet Firebas
 |---|---|---|
 | Landing (vend la formation) | `apps/landing` | https://leproductengineer.web.app |
 | Plateforme (inscription, cours, exercices) | `apps/platform` | https://leproductengineer-go.web.app |
-| Programme (modules, leçons, exercices, skills) | `packages/curriculum` | — |
+| Programme (modules, leçons, exercices, skills, ceintures) | `packages/curriculum` | — |
+| Thème « Dojo BD » partagé (tokens, composants BD) | `packages/ui` | — |
 | Règles Firestore | `firestore.rules` | — |
 
 Projet Firebase : `leproductengineer-93` (console : https://console.firebase.google.com/project/leproductengineer-93).
@@ -44,7 +45,13 @@ npm run deploy:landing       # ou un seul site
 - **Export statique** : pas de Server Actions, pas de route handlers dynamiques, pas de
   `cookies()`/`headers()`. Les pages protégées sont gardées côté client
   (`app/(app)/layout.tsx`) ; la vraie barrière, ce sont les règles Firestore.
-- Le design est **provisoire** (tokens dans `globals.css`) : il sera refait plus tard.
+- **Design** : thème « Dojo BD », clair uniquement, dans `packages/ui` (`theme.css` + composants
+  React). Planche de DA : https://claude.ai/artifact/DCaHxuf9UwHtQ4ZEggSfBe. Ordre : tokens →
+  composants → écrans ; aucune couleur ni police en dur dans un écran. Un procédé BD = un rôle
+  (bulle = Youcef, « Oss ! » = réussite, ombre en aplat = la seule action à faire).
+- **Ceintures** : calculées depuis le nombre de katas (leçons) validés, `packages/curriculum/src/belts.ts`.
+  Un kata se valide quand toute la checklist de son exercice est cochée et enregistrée.
+- Les illustrations de `public/illustrations/` sont **provisoires** (visuels LinkedIn recadrés).
 - Langue : contenu et code commentés en français.
 
 ## Suivi du projet (BMAD)

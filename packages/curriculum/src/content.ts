@@ -69,6 +69,7 @@ Si une réponse manque, pose la question à l'utilisateur au lieu de supposer. T
           brief:
             "Note-toi de 1 à 5 sur chacune des trois casquettes. Pour chaque note, donne une preuve : une décision que tu as réellement prise.",
           deliverable: "Trois notes, trois preuves, et la casquette que tu veux muscler en premier.",
+          achievement: "Tu sais par quelle casquette commencer.",
           checklist: [
             "Une note de 1 à 5 pour produit, design et tech",
             "Une décision réelle par casquette (pas une compétence théorique)",
@@ -117,6 +118,7 @@ Pose au plus trois questions pour comprendre le contexte, puis propose deux ou t
           brief:
             "Choisis la feature ou l'app sur laquelle tu vas appliquer chaque module. Décris-la en trois lignes.",
           deliverable: "Utilisateur visé, problème, résultat attendu (trois lignes).",
+          achievement: "Ton projet fil rouge est choisi.",
           checklist: [
             "Un utilisateur réel ou accessible",
             "Un problème formulé sans parler de solution",
@@ -180,6 +182,7 @@ Si la demande est déjà un problème clair, dis-le et passe directement à l'hy
           brief:
             "Prends une demande de feature réelle (ton fil rouge, ton backlog, un client) et remonte au problème.",
           deliverable: "Demande, problème, hypothèse, métrique, et une question à poser à un utilisateur.",
+          achievement: "Ton problème est formulé.",
           checklist: [
             "Le problème ne contient aucune solution",
             "L'hypothèse a la forme « si… alors… parce que… »",
@@ -229,6 +232,7 @@ Refuse les découpages horizontaux (« d'abord le back, puis le front ») : ils 
           title: "Trois incréments",
           brief: "Découpe la feature de ton fil rouge en trois incréments verticaux et choisis le premier.",
           deliverable: "Trois incréments avec ce qu'ils apprennent, et le choix argumenté du premier.",
+          achievement: "Ton premier incrément est choisi.",
           checklist: [
             "Chaque incrément est utilisable par un utilisateur",
             "Chaque incrément dit ce qu'il permet d'apprendre",
@@ -277,6 +281,7 @@ Termine en désignant le risque à tester en premier et le test à lancer cette 
           title: "Ta carte des risques",
           brief: "Remplis la carte des quatre risques pour ton premier incrément et choisis le test à lancer.",
           deliverable: "Le tableau des quatre risques et le test retenu, avec son critère de réussite.",
+          achievement: "Tu sais quel risque tester en premier.",
           checklist: [
             "Les quatre risques sont évalués",
             "Le test est faisable en moins d'une semaine",
@@ -338,6 +343,7 @@ Rends le parcours sous forme de liste et, si l'outil le permet, d'un diagramme M
           title: "Ton parcours et ses états",
           brief: "Dessine le parcours de ton premier incrément et liste les états de chaque étape.",
           deliverable: "Le parcours (schéma ou liste) et la liste des états par étape.",
+          achievement: "Ton parcours a tous ses états.",
           checklist: [
             "Le parcours a un début et une fin clairs",
             "Les états vide, chargement et erreur sont prévus",
@@ -388,6 +394,7 @@ Pour chaque problème : ce qui ne va pas, pourquoi, la correction. Classe les co
           title: "Critique un écran",
           brief: "Prends un écran de ton fil rouge (ou d'une app que tu utilises) et passe-le aux cinq règles.",
           deliverable: "Les problèmes trouvés, les trois corrections prioritaires, et si possible l'avant/après.",
+          achievement: "Tes trois corrections prioritaires sont posées.",
           checklist: [
             "Les cinq règles sont passées",
             "Chaque problème a une correction concrète",
@@ -438,6 +445,7 @@ Pour chaque problème : ce qui ne va pas, pourquoi, la correction. Classe les co
           title: "Ton premier test",
           brief: "Teste ton prototype (ou un écran existant) avec au moins trois personnes.",
           deliverable: "Le script utilisé, les problèmes classés et les corrections des bloquants.",
+          achievement: "Ton écran a passé son premier test.",
           checklist: [
             "Au moins trois personnes testées",
             "Les tâches sont des objectifs, pas des instructions",
@@ -500,6 +508,7 @@ Une page maximum. Pas d'option fantaisiste pour faire nombre.`,
           title: "Écris ton ADR",
           brief: "Rédige la décision de stack de ton fil rouge, même si elle te paraît évidente.",
           deliverable: "Un ADR d'une page : contexte, options, comparaison, décision, conséquences.",
+          achievement: "Ta décision technique est écrite.",
           checklist: [
             "Au moins deux options comparées",
             "Les critères partent du produit et de l'équipe",
@@ -550,6 +559,7 @@ Justifie le choix NoSQL ou SQL par les usages, pas par préférence.`,
           title: "Le modèle de ton fil rouge",
           brief: "Modélise les données de ton premier incrément en partant de ses écrans.",
           deliverable: "Écrans et requêtes, schéma des données, index et règles d'accès.",
+          achievement: "Tes données suivent tes écrans.",
           checklist: [
             "Chaque écran a ses lectures et écritures",
             "Les requêtes fréquentes ont leur index",
@@ -602,6 +612,7 @@ Termine par une checklist de mise en production cochable.`,
             "Rassemble ton fil rouge : problème, incrément, parcours, ADR, modèle, et ajoute le plan de mesure. C'est le dossier que tu montres en entretien.",
           deliverable:
             "Un dossier d'une à deux pages : le problème, les décisions produit, design et tech, et le plan de mesure.",
+          achievement: "Ton dossier de livraison est prêt.",
           checklist: [
             "La métrique de succès a une valeur cible",
             "Les événements analytics sont nommés",

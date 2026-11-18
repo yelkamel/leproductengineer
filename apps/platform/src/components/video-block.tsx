@@ -1,10 +1,11 @@
 import type { Video } from "@lpe/curriculum";
+import { Bulle, Case, Recit } from "@lpe/ui";
 
-/** Vidéo prête : l'iframe. Sinon : un placeholder qui montre les notes de préparation. */
+/** Vidéo prête : l'iframe. Sinon : une case qui annonce la vidéo et montre les notes de préparation. */
 export function VideoBlock({ video, title }: { video: Video; title: string }) {
   if (video.status === "ready") {
     return (
-      <div className="aspect-video overflow-hidden rounded-2xl border border-border bg-black">
+      <Case className="aspect-video bg-ink">
         <iframe
           src={video.embedUrl}
           title={title}
@@ -12,24 +13,23 @@ export function VideoBlock({ video, title }: { video: Video; title: string }) {
           allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen"
           allowFullScreen
         />
-      </div>
+      </Case>
     );
   }
 
   const { prep } = video;
   return (
-    <div className="overflow-hidden rounded-2xl border border-dashed border-border bg-surface">
-      <div className="flex aspect-video flex-col items-center justify-center gap-2 bg-foreground/[0.03] p-6 text-center">
-        <span aria-hidden className="text-4xl">🎬</span>
-        <p className="font-medium">Vidéo en préparation</p>
-        <p className="text-sm text-muted">Environ {video.targetMinutes} minutes</p>
-        <p className="mt-2 max-w-md text-balance text-sm italic">« {prep.hook} »</p>
+    <Case>
+      <div className="bd-sky relative flex min-h-64 flex-col items-start justify-end gap-4 p-5 sm:aspect-[16/7]">
+        <div className="bd-trame absolute inset-0" aria-hidden />
+        <Recit className="relative">Vidéo en préparation · environ {video.targetMinutes} min</Recit>
+        <Bulle className="relative max-w-[52ch] text-[15px]">{prep.hook}</Bulle>
       </div>
-      <details className="group border-t border-border p-5 text-sm">
-        <summary className="cursor-pointer font-medium marker:text-muted">Notes de préparation</summary>
+      <details className="border-t-[3px] border-ink p-5 text-[15px]">
+        <summary className="cursor-pointer font-semibold">Notes de préparation</summary>
         <dl className="mt-4 flex flex-col gap-4">
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-muted">Points clés</dt>
+            <dt className="bd-label">Points clés</dt>
             <dd>
               <ol className="mt-1 list-decimal space-y-1 pl-5">
                 {prep.keyPoints.map((p) => (
@@ -39,15 +39,15 @@ export function VideoBlock({ video, title }: { video: Video; title: string }) {
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-muted">Histoire à raconter</dt>
+            <dt className="bd-label">Histoire à raconter</dt>
             <dd className="mt-1">{prep.story}</dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-wider text-muted">À retenir</dt>
-            <dd className="mt-1 font-medium">{prep.takeaway}</dd>
+            <dt className="bd-label">À retenir</dt>
+            <dd className="mt-1 font-semibold">{prep.takeaway}</dd>
           </div>
         </dl>
       </details>
-    </div>
+    </Case>
   );
 }

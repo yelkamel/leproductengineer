@@ -12,6 +12,7 @@ import {
   useSubmission,
   type SubmissionValues,
 } from "@/lib/learning";
+import { Case } from "@lpe/ui";
 import { Alert, Button, Spinner } from "./ui";
 
 export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lessonId: string }) {
@@ -37,14 +38,15 @@ export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lesso
   const checked = useWatch({ control, name: "checked" }) ?? [];
 
   return (
-    <section aria-labelledby="exercise-title" className="rounded-2xl border border-border bg-surface p-6">
-      <p className="text-xs font-medium uppercase tracking-wider text-accent">Exercice</p>
-      <h2 id="exercise-title" className="mt-1 text-lg font-semibold">
+    <Case className="p-5 sm:p-6">
+      <section aria-labelledby="exercise-title">
+      <p className="bd-kicker">Exercice</p>
+      <h2 id="exercise-title" className="bd-h3 mt-2 text-xl">
         {exercise.title}
       </h2>
-      <p className="mt-2 text-sm">{exercise.brief}</p>
-      <p className="mt-2 text-sm text-muted">
-        <span className="font-medium text-foreground">Livrable :</span> {exercise.deliverable}
+      <p className="mt-3 max-w-[65ch]"><span className="font-semibold">Consigne.</span> {exercise.brief}</p>
+      <p className="mt-2 max-w-[65ch]">
+        <span className="font-semibold">Livrable.</span> {exercise.deliverable}
       </p>
 
       {submission.isPending ? (
@@ -52,16 +54,16 @@ export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lesso
       ) : (
         <form onSubmit={onSubmit} className="mt-5 flex flex-col gap-4">
           <fieldset>
-            <legend className="text-sm font-medium">
+            <legend className="bd-label">
               Checklist ({checked.length}/{exercise.checklist.length})
             </legend>
             <div className="mt-2 flex flex-col gap-2">
               {exercise.checklist.map((item, i) => (
-                <label key={item} className="flex items-start gap-2 text-sm">
+                <label key={item} className="flex cursor-pointer items-start gap-2.5 text-[15px]">
                   <input
                     type="checkbox"
                     value={i}
-                    className="mt-0.5 size-4 accent-[var(--accent)]"
+                    className="bd-check"
                     {...register("checked", { setValueAs: (v: string[]) => (v ?? []).map(Number) })}
                   />
                   {item}
@@ -70,7 +72,7 @@ export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lesso
             </div>
           </fieldset>
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="answer" className="text-sm font-medium">
+            <label htmlFor="answer" className="bd-label">
               Ta réponse
             </label>
             <textarea
@@ -78,10 +80,11 @@ export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lesso
               rows={10}
               maxLength={ANSWER_MAX_LENGTH}
               placeholder="Écris ton livrable ici. Il est enregistré dans ton compte."
-              className="rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none focus:border-accent"
+              className="bd-input"
+              aria-invalid={formState.errors.answer ? true : undefined}
               {...register("answer")}
             />
-            <p className="self-end text-xs text-muted">
+            <p className="self-end font-mono text-[11px] text-ink-soft">
               {answerLength}/{ANSWER_MAX_LENGTH}
             </p>
             {formState.errors.answer && <Alert>{formState.errors.answer.message}</Alert>}
@@ -92,10 +95,11 @@ export function ExerciseForm({ exercise, lessonId }: { exercise: Exercise; lesso
             <Button type="submit" disabled={formState.isSubmitting || !formState.isDirty}>
               {formState.isSubmitting ? "Enregistrement…" : "Enregistrer"}
             </Button>
-            {save.isSuccess && !formState.isDirty && <span className="text-sm text-success">Enregistré ✓</span>}
+            {save.isSuccess && !formState.isDirty && <span role="status" className="font-letter text-sm font-bold">Enregistré.</span>}
           </div>
         </form>
       )}
-    </section>
+      </section>
+    </Case>
   );
 }

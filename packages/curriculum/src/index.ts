@@ -1,6 +1,8 @@
 import { curriculum as rawCurriculum } from "./content";
+import { beltLadder, rankFor } from "./belts";
 import { curriculumSchema, type Lesson, type Module, type Skill } from "./schema";
 
+export * from "./belts";
 export * from "./schema";
 
 /** Programme validé au chargement : une erreur de contenu casse le build, pas la prod. */
@@ -21,6 +23,32 @@ export const allLessons: readonly LessonRef[] = curriculum.flatMap((module) =>
 ).map((ref, index) => ({ ...ref, index }));
 
 export const totalLessons = allLessons.length;
+
+/** Les sept ceintures du programme (un kata = une leçon validée). */
+export const belts = beltLadder(totalLessons);
+
+/** Le rang de l'apprenant à partir du nombre de katas validés. */
+export function rankOf(validatedKatas: number) {
+  return rankFor(validatedKatas, belts);
+}
+
+/** Numéro de tome d'un module (l'introduction est le tome 1). */
+export function tomeNumber(module: Pick<Module, "order">): number {
+  return module.order + 1;
+}
+
+/** Nom court du tome (« Produit »), sinon son kicker (« Introduction »). */
+export function tomeName(module: Pick<Module, "title" | "kicker">): string {
+  const [head, ...rest] = module.title.split(" : ");
+  return rest.length ? head! : module.kicker;
+}
+
+/** La ceinture qu'on porte en fermant le tome, si on a validé tous les katas jusque-là. */
+export function beltAtEndOf(module: Module) {
+  const last = module.lessons.at(-1)!;
+  const ref = allLessons.find((r) => r.lesson.id === last.id)!;
+  return rankOf(ref.index + 1).belt;
+}
 
 export function findModule(moduleSlug: string): Module | undefined {
   return curriculum.find((m) => m.slug === moduleSlug);

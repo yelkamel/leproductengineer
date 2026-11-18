@@ -26,13 +26,13 @@ export default function SignupPage() {
 
   return (
     <>
-      <h1 className="mb-1 text-xl font-semibold">Créer ton compte</h1>
-      <p className="mb-6 text-sm text-muted">Gratuit. Accès immédiat aux trois modules.</p>
+      <h1 className="bd-h2 mb-2">Créer ton compte</h1>
+      <p className="mb-6 text-sm text-ink-soft">Gratuit. Accès immédiat aux quatre tomes. Tu commences ceinture blanche.</p>
       <GoogleButton />
       <Divider />
       <form onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
         <Field id="displayName" label="Prénom" autoComplete="given-name" error={errors.displayName?.message} {...register("displayName")} />
-        <Field id="email" label="E-mail" type="email" autoComplete="email" error={errors.email?.message} {...register("email")} />
+        <Field id="email" label="E-mail" type="email" autoComplete="username" error={errors.email?.message} {...register("email")} />
         <Field
           id="password"
           label="Mot de passe"
@@ -54,9 +54,9 @@ export default function SignupPage() {
           {isSubmitting ? "Création…" : "Créer mon compte"}
         </Button>
       </form>
-      <p className="mt-6 text-center text-sm text-muted">
+      <p className="mt-6 text-center text-sm text-ink-soft">
         Déjà inscrit ?{" "}
-        <Link href="/login/" className="font-medium text-accent">
+        <Link href="/login/" className="bd-link">
           Se connecter
         </Link>
       </p>

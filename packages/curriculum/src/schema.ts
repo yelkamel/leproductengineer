@@ -47,6 +47,8 @@ export const exerciseSchema = z.object({
   title: z.string().min(1),
   brief: z.string().min(1),
   deliverable: z.string().min(1),
+  /** Ce que l'apprenant a obtenu, affiché quand le kata est validé (« Ton problème est formulé. »). */
+  achievement: z.string().min(1),
   checklist: z.array(z.string().min(1)).min(1),
 });
 

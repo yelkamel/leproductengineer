@@ -26,12 +26,12 @@ export default function LoginPage() {
 
   return (
     <>
-      <h1 className="mb-1 text-xl font-semibold">Connexion</h1>
-      <p className="mb-6 text-sm text-muted">Reprends là où tu t&apos;étais arrêté.</p>
+      <h1 className="bd-h2 mb-2">Connexion</h1>
+      <p className="mb-6 text-sm text-ink-soft">Reprends là où tu t&apos;étais arrêté.</p>
       <GoogleButton />
       <Divider />
       <form onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
-        <Field id="email" label="E-mail" type="email" autoComplete="email" error={errors.email?.message} {...register("email")} />
+        <Field id="email" label="E-mail" type="email" autoComplete="username" error={errors.email?.message} {...register("email")} />
         <Field
           id="password"
           label="Mot de passe"
@@ -46,10 +46,10 @@ export default function LoginPage() {
         </Button>
       </form>
       <div className="mt-6 flex justify-between text-sm">
-        <Link href="/reset-password/" className="text-muted hover:text-foreground">
+        <Link href="/reset-password/" className="bd-link font-normal">
           Mot de passe oublié
         </Link>
-        <Link href="/signup/" className="font-medium text-accent">
+        <Link href="/signup/" className="bd-link">
           Créer un compte
         </Link>
       </div>

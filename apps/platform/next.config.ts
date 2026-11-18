@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  transpilePackages: ["@lpe/curriculum"],
+  transpilePackages: ["@lpe/curriculum", "@lpe/ui"],
   turbopack: {
     rules: {
       "*.css": {
